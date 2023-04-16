@@ -1,10 +1,14 @@
 import './App.css';
 
 function App() {
+  console.log(process.env.REACT_APP_NAME)
   return (
     <div className="App">
         Hello from Saravnan Again
-        <h2>Sara Pharma</h2>
+        <h2>Sara Pharma 1</h2>
+        <p>
+          Hi {process.env.REACT_APP_NAME}
+        </p>
     </div>
   );
 }
