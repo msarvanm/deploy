@@ -2,6 +2,7 @@ import './App.css';
 
 function App() {
   console.log(process.env.REACT_APP_NAME)
+  console.log(process.env.REACT_APP_NAME1)
   return (
     <div className="App">
         Hello from Saravnan Again
