@@ -1,4 +1,5 @@
 import './App.css';
+import Home from './Home';
 
 function App() {
   console.log(process.env.REACT_APP_NAME)
@@ -10,6 +11,7 @@ function App() {
         <p>
           Hi {process.env.REACT_APP_NAME}
         </p>
+        <Home/>
     </div>
   );
 }
