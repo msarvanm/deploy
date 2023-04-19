@@ -34,7 +34,8 @@ const Home = () => {
         {posts.map((post, index)=>{
             return(
               <div key={post.id}>
-                <p>Hello {post.name}</p>
+                <p>Hello Hello{post.name}</p>
+
               </div>
             )
           })}
