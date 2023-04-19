@@ -24,7 +24,7 @@ const Home = () => {
         
         fetchData();
         console.log(posts)
-      },[url]);
+      },[posts]);
 
   return (
     <div>
