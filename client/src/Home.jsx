@@ -9,21 +9,22 @@ const Home = () => {
     console.log(url)
     const [posts, setPosts] = useState('');
 
-    const fetchData = async ()=>{
-      try{
-        const res = await axios.get(url)
-        setPosts(res.data);
-        
-      } catch(err) {
-        console.log(err)
-      }
-    }
+
 
     useEffect(()=>{
+      const fetchData = async ()=>{
+        try{
+          const res = await axios.get(url)
+          setPosts(res.data);
+          
+        } catch(err) {
+          console.log(err)
+        }
+      }
         
         fetchData();
         console.log(posts)
-      });
+      },[url]);
 
   return (
     <div>
@@ -33,7 +34,7 @@ const Home = () => {
         {posts.map((post, index)=>{
             return(
               <div key={post.id}>
-                <p>{post.name}</p>
+                <p>{post.username}</p>
               </div>
             )
           })}
