@@ -1,5 +1,5 @@
 import './App.css';
-import Home from './Home';
+import Home1 from './pages/Home1';
 
 function App() {
   console.log(process.env.REACT_APP_NAME)
@@ -11,7 +11,7 @@ function App() {
         <p>
           Hi {process.env.REACT_APP_NAME}
         </p>
-        <Home/>
+        <Home1/>
     </div>
   );
 }
