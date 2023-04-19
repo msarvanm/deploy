@@ -23,7 +23,7 @@ const Home = () => {
         
         fetchData();
         console.log(posts)
-      },[])
+      },[url)
   return (
     <div>
       <p>Hello from home</p>
