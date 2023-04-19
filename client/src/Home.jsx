@@ -35,6 +35,7 @@ const Home = () => {
             return(
               <div key={post.id}>
                 <p>Hello Hello{post.name}</p>
+
               </div>
             )
           })}
