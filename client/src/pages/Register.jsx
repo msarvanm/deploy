@@ -13,7 +13,6 @@ const Register = () => {
   const navigate = useNavigate();
 
   const handleChange = e =>{
-    
     setInputs(prev=>({...prev, [e.target.name]: e.target.value}))
     console.log(inputs)
   };
@@ -21,16 +20,13 @@ const Register = () => {
   const handleSubmit = async e =>{
     e.preventDefault();
     try{
-      const res = await axios.post("/auth/register", inputs)
+      const res = await axios.post("/register", inputs)
       console.log(res)
       navigate('/login');
     }catch(err) {
       console.log('Error is ', err)
     }
-    
   }
-
-  console.log(inputs)
 
   return (
     <div className='auth'>

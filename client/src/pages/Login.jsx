@@ -1,4 +1,4 @@
-// import axios from "axios";
+import axios from "axios";
 import React, { useState } from "react";
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -14,10 +14,9 @@ const Login = () => {
   const navigate = useNavigate();
 
   const { currentUser } = useContext(AuthContext);
-  console.log(currentUser)
+  console.log("current user is ", currentUser)
 
   const { login } = useContext(AuthContext);
-
 
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));

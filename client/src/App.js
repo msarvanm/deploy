@@ -1,17 +1,49 @@
-import './App.css';
-import Home1 from './pages/Home1';
+import { createBrowserRouter, RouterProvider, Outlet} from "react-router-dom"
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import './Style.scss'
+
+const Layout =()=>{
+  return (
+    <>
+      <Navbar/>
+      <Outlet/>
+      <Footer/>
+    </>
+  )
+}
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout/>,
+    children:[
+      {
+        path: "/",
+        element: <Home/>,
+      },
+    ]
+  },
+
+  {
+    path: "/login",
+    element: <Login/>,
+  },
+  {
+    path: "/register",
+    element: <Register/>,
+  },
+
+]);
 
 function App() {
-  console.log(process.env.REACT_APP_NAME)
-  console.log(process.env.REACT_APP_NAME1)
   return (
-    <div className="App">
-        Hello from Saravnan Again
-        <h2>Sara Pharma 1</h2>
-        <p>
-          Hi {process.env.REACT_APP_NAME}
-        </p>
-        <Home1/>
+    <div className="app">
+      <div className="container">
+         <RouterProvider router={router} />
+      </div>
     </div>
   );
 }
