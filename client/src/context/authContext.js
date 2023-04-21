@@ -9,13 +9,13 @@ export const AuthContexProvider = ({ children }) => {
   );
 
   const login = async (inputs) => {
-    const res = await axios.post("/login1", inputs);
+    const res = await axios.post("https://deployserver-production-e464.up.railway.app/login1", inputs);
     setCurrentUser(res.data);
     console.log(currentUser)
   };
 
   const logout = async (inputs) => {
-    await axios.post("/logout");
+    await axios.post("https://deployserver-production-e464.up.railway.app/logout");
     setCurrentUser(null);
   };
 
