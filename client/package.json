@@ -43,6 +43,6 @@
   },
   "devDependencies": {
     "dotenv": "^16.0.3"
-  },
-  "proxy": "https://deployserver-production-e464.up.railway.app"
+  }
+  
 }
