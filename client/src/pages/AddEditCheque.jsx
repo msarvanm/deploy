@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import { useParams, Link, useNavigate } from "react-router-dom";
-import moment from 'moment';
+// import moment from 'moment';
 
 const AddEditCheque = () => {
 
@@ -21,7 +21,6 @@ const AddEditCheque = () => {
 
     useEffect(()=>{
         axios.get(`https://deployserver-production-e464.up.railway.app/getcheque/${id}`).then((resp)=>setState({...resp.data}));
-        console.log(state)
     },[id]);
 
     const handleSubmit = (e)=>{
