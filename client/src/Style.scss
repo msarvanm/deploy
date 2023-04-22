@@ -199,5 +199,42 @@ $lightGreen : #b9e7e7;
                 }
             }
         }
+
+        .addedit {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            
+            width: 100%;
+            // max-width: 800px;
+            align-items: center;
+            justify-content: center;
+
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+                justify-content: center;
+                
+
+                input {
+                    width: 300px;
+                }
+                .btn-area {
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    align-items: center;
+                    justify-content: center;
+                    input {
+                        text-decoration: none;
+                        margin: 0;
+                    }
+                  
+                }
+            }
+        }
     }
 }
