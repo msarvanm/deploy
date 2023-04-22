@@ -1,6 +1,8 @@
 import { createBrowserRouter, RouterProvider, Outlet} from "react-router-dom"
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import AddEditCheque from "./pages/AddEditCheque";
+import Cheques from "./pages/Cheques";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -23,6 +25,18 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home/>,
+      },
+      {
+        path: "/cheques",
+        element: <Cheques/>,
+      },
+      {
+        path: "/addcheque",
+        element: <AddEditCheque/>,
+      },
+      {
+        path: "/editcheque/:id",
+        element: <AddEditCheque/>,
       },
     ]
   },
