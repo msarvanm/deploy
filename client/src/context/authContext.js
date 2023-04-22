@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 
+
 export const AuthContext = createContext();
 
 export const AuthContexProvider = ({ children }) => {
@@ -14,7 +15,9 @@ export const AuthContexProvider = ({ children }) => {
     console.log(currentUser)
   };
 
-  const logout = async (inputs) => {
+
+
+  const logout = async ()=> {
     await axios.post("https://deployserver-production-e464.up.railway.app/logout");
     setCurrentUser(null);
   };
