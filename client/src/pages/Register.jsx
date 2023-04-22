@@ -9,7 +9,7 @@ const Register = () => {
     email: "",
     password: ""
   });
-
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleChange = e =>{
@@ -25,7 +25,8 @@ const Register = () => {
       console.log(res)
       navigate('/login');
     }catch(err) {
-      console.log('Error is ', err)
+      console.log('Error is ', err.response.data)
+      setError(err.response.data)
     }
   }
 
@@ -37,7 +38,7 @@ const Register = () => {
         <input required type="email" placeholder='email' name= 'email' onChange={handleChange} />
         <input required type="text" placeholder='password' name = 'password' onChange={handleChange}/>
         <button onClick={handleSubmit}>Register</button>
-        <p>There is an error!</p>
+        <p>{error}</p>
         <Link to='/login'>Login</Link>
       </form>
     </div>
