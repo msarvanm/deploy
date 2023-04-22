@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import AddEditCheque from "./pages/AddEditCheque";
 import Cheques from "./pages/Cheques";
 import Home from "./pages/Home";
+import Issues from "./pages/Issues";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import './Style.scss'
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/editcheque/:id",
         element: <AddEditCheque/>,
+      },
+      {
+        path: "/issues",
+        element: <Issues/>,
       },
     ]
   },

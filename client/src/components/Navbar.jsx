@@ -18,6 +18,9 @@ const Navbar = () => {
           <Link className='link' to='/cheques'>
             <h6>CHEQUES</h6>
           </Link>
+          <Link className='link' to='/issues'>
+            <h6>ISSUES</h6>
+          </Link>
 
           <span>{currentUser? currentUser.username : <p>John</p>}</span>
           {currentUser? <span onClick={logout}>Logout</span> : <Link to="/login" className='link'>Login</Link>}
