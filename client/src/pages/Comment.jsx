@@ -47,11 +47,10 @@ const loadData = async () => {
 
 useEffect (()=>{
     loadData();
-},[])
+},[issue_description])
 
   return (
         <div className='comments'>
-
                  <div className='desc'>
                     <h4>Description</h4>
                     <p>{issue_description}</p>
