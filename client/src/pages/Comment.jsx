@@ -43,12 +43,11 @@ const handleSubmit = (e)=>{
 const loadData = async () => {
     const response = await axios.get(`https://deployserver-production-e464.up.railway.app/getcomments/${pur_issue_id}`);
     setData(response.data);
-    console.log("data is ", response.data)
 }
 
 useEffect (()=>{
     loadData();
-},[loadData])
+},[])
 
   return (
         <div className='comments'>
