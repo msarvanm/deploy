@@ -144,7 +144,7 @@ const handleSubmit = (e)=>{
           <select name="issue" id="issue" value={issue || "Excess" } onChange={handleInputChange} >
             <option value="Excess">Excess</option>
             <option value="Shortage">Shortage</option>
-            <option value="Change">MRP Change</option>
+            <option value="MRP Change">MRP Change</option>
             <option value="Damaged">Damaged</option>
           </select>
           <select name="status" id="status" value={status || "In Progress" } onChange={handleInputChange} >
