@@ -47,7 +47,7 @@ const loadData = async () => {
 
 useEffect (()=>{
     loadData();
-},[issue_description])
+},[currentUser])
 
   return (
         <div className='comments'>
