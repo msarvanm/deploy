@@ -53,6 +53,7 @@ const loadData = async () => {
                 </div>
                 <div className="comment">
                  <h4>Follow ups</h4>
+                    <button onClick={loadData}>Click to view follow ups</button>
        
                     {data && <div className='comment-section'>
                         {data.map((comment)=>{
