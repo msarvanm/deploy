@@ -12,8 +12,6 @@ const { currentUser } = useContext(AuthContext);
 console.log("current user is ", currentUser)
 console.log("pur_issue_id", pur_issue_id)
 
-const {id} = pur_issue_id;
-
 const navigate = useNavigate();
 
 const [comment, setComment] = useState('');
@@ -49,9 +47,8 @@ const loadData = async () => {
 }
 
 useEffect (()=>{
-    console.log("use Effect")
     loadData();
-},[pur_issue_id])
+},[])
 
   return (
         <div className='comments'>
