@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import { useParams, Link, useNavigate } from "react-router-dom";
-// import moment from 'moment';
 
 const AddEditCheque = () => {
 
@@ -78,7 +77,6 @@ const AddEditCheque = () => {
                     value={chq_no || ''}
                     onChange={handleInputChange}
                  />
-                 {/* <label htmlFor=""><p>{moment(chq_date).format('YYYY MM D')}</p></label> */}
                  
                  <input 
                     type="date" 
