@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import { useState } from 'react'
 import moment from 'moment';
 import { AuthContext } from '../context/authContext';
-import { useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
