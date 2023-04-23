@@ -4,6 +4,7 @@ import moment from 'moment';
 import { AuthContext } from '../context/authContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import {AiFillDownCircle} from "react-icons/ai"
 
 const Comment = ({pur_issue_id, issue_description}) => {
 
@@ -52,9 +53,11 @@ const loadData = async () => {
                     <p>{issue_description}</p>
                 </div>
                 <div className="comment">
-                 <h4>Follow ups</h4>
-                    <button onClick={loadData}>Click to view follow ups</button>
-       
+                    <div className="heading">
+                     <h4>Follow ups</h4>
+                     <button onClick={loadData}><AiFillDownCircle/></button> 
+                    </div>
+                    
                     {data && <div className='comment-section'>
                         {data.map((comment)=>{
                         return (
