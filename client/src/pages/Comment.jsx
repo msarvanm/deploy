@@ -46,8 +46,9 @@ const loadData = async () => {
 }
 
 useEffect (()=>{
-    loadData();
-},[currentUser])
+    const response = axios.get(`https://deployserver-production-e464.up.railway.app/getcomments/${pur_issue_id}`);
+    setData(response.data);
+},[])
 
   return (
         <div className='comments'>
