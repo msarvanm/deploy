@@ -48,7 +48,7 @@ const loadData = async () => {
 
 useEffect (()=>{
     loadData();
-},[])
+},[loadData])
 
   return (
         <div className='comments'>
