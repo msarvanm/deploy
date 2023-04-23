@@ -3,7 +3,6 @@ import { useState } from 'react'
 import {AiOutlineMinus, AiOutlinePlus} from "react-icons/ai"
 import moment from 'moment';
 import { AuthContext } from '../context/authContext';
-import { useEffect } from 'react';
 import Comment from './Comment';
 
 const SinglePurchaseIssue = ({issue}) => {
@@ -12,10 +11,6 @@ const { currentUser } = useContext(AuthContext);
 console.log("current user is ", currentUser)
 
 const [showInfo, setShowInfo] = useState(false);
-
-useEffect (()=>{
-    loadData();
-},[])
 
 const handleClick = (id) => {
     setShowInfo(!showInfo);
