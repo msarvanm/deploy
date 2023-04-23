@@ -32,7 +32,7 @@ const handleSubmit = (e)=>{
                 setComment('')
                 navigate('/issues')
                 setTimeout(() => {
-                    setLoadDataAgain(true)
+                    loadData();
                 }, 500);
             }).catch((err)=>{
                 console.log(err);
@@ -40,17 +40,11 @@ const handleSubmit = (e)=>{
         }
 }
 
-const [loadDataAgain, setLoadDataAgain] = useState(false);
-
 const loadData = async () => {
     const response = await axios.get(`https://deployserver-production-e464.up.railway.app/getcomments/${pur_issue_id}`);
     setData(response.data);
-    setLoadDataAgain(false)
+    
 }
-
-useEffect (()=>{
-    loadData();
-},[loadDataAgain])
 
   return (
         <div className='comments'>
