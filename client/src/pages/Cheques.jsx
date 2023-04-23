@@ -59,7 +59,6 @@ const Cheques = () => {
                                     <Link to={`/editcheque/${item.chq_issue_id}` }>
                                         <img src={Edit} alt="" />
                                     </Link>
-                                    {/* <button className="btn btn-delete" onClick={()=>console.log("clicked")}><img src={Delete} alt="" /></button> */}
                                     <button className="btn btn-delete" onClick={()=>handleDelete(item.chq_issue_id)}><img src={Delete} alt="" /></button>
                                 </td>
                             </tr>

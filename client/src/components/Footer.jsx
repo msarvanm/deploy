@@ -6,7 +6,7 @@ const Footer = () => {
     <footer>
       <img src={Logo} alt="" />
       <span>
-        Made with ♥️ and <b>React.js</b>
+      <b>Sara Pharma</b> Thillai Nagar, Trichy
       </span>
     </footer>
   )

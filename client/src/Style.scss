@@ -1,7 +1,9 @@
 $lightGreen : #b9e7e7;
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 .app {
     display: flex;
     justify-content: center;
+    font-family: Quicksand;
     .container {
         // width: 1024px;
         width: 90%;
@@ -82,7 +84,7 @@ $lightGreen : #b9e7e7;
                 .links{
                     display: flex;
                     align-items: center;
-                    gap: 10px;
+                    gap: 30px;
 
                     h6 {
                         font-size: 16px;
@@ -235,6 +237,178 @@ $lightGreen : #b9e7e7;
                   
                 }
             }
+        }
+
+        .container-purchase-issues {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            section {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+        }
+
+        .questions {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            .answers{
+                background-color: #f2f5f5;
+            }
+            header {
+               
+                display: flex;
+                flex-direction: row;
+                width: 800px;
+                justify-content: space-between;
+                background: #f2f5f5;
+                // border: 1px solid teal;
+                padding: 0, 20px;
+                
+                .border{
+                    background-color: rgb(149, 171, 171);
+                    width: 5px;
+                }
+                .summary {
+                    padding: 3px;
+                    display: flex;
+                    flex-direction: row;
+                    gap: 40px;
+                    align-items: center;
+                    justify-content: center;
+
+                    h3 {
+                        width: 100px;
+                        color: rgb(71, 52, 181);
+                    }
+
+                    .supplier{
+                        width: 150px;
+                        h6 {
+                            margin: 0;
+                        }
+                        h4 {
+                            color: rgb(181, 52, 112);
+                            margin-bottom: 5px;
+                            margin-top: 0;
+                            padding: 0;
+                        }
+                    }
+                    .product{
+                        width: 350px;
+                        padding: 0;
+                        h6 {
+                            margin: 0;
+                        }
+                    }
+
+                    .product {
+                        h4 {
+                            color: rgb(181, 52, 112);
+                            margin-bottom: 5px;
+                            margin-top: 0;
+                            padding: 0;
+                        }
+                    }
+                }
+
+                .btn {
+                    background-color: transparent;
+                }
+                
+            }
+            .answers {
+                padding: 10px;
+            }
+
+
+        }
+
+        .purchase-issue-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 13px;
+                input {
+                    width: 220px;
+                    padding: 5px;
+                }
+                select {
+                    padding: 5px;
+                }
+            }
+        }
+        .comments {
+            display: flex;
+            flex-direction: column;
+            background-color: #f2f5f5;
+            padding: 10px;
+            .desc{
+                h4 {
+                    color: rgb(71, 52, 181);
+                }
+                p {
+                    background-color: white;
+                    padding: 10px;
+                    border-radius: 5px;
+                }
+                
+            }
+            .comment {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                h4 {
+                    color: rgb(71, 52, 181);
+                    margin: 0;
+                }
+                .comment-section {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    .comments-map {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 5px;
+                        .single-comment {
+                            background-color: white;
+                            width: 500px;
+                            padding: 5px;
+                            p {
+                                margin: 0;
+                                padding: 5px;
+                            }
+                        }
+                        .user-details {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: end;
+                            p {
+                                margin: 0;
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+                form {
+                    margin-top: 5px;
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                }
+
+
+            }
+
+
         }
     }
 }
