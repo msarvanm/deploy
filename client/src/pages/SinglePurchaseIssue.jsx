@@ -19,7 +19,7 @@ const handleClick = () => {
 
 const handleDelete = (id) =>{
     if(window.confirm('Confirm Delete', id)) {
-        axios.get(`http://localhost:9000/deleteissue/${id}`);
+        axios.get(`https://deployserver-production-e464.up.railway.app/${id}`);
         setTimeout(()=>loadData(),500);
     }
 }
