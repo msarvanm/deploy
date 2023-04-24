@@ -26,18 +26,18 @@ const Navbar = () => {
           <Link className='link' to='/'>
             <h6>HOME</h6>
           </Link>
-          <Link className='link' to='/cheques'>
-            <h6>CHEQUES</h6>
-          </Link>
-          <Link className='link' to='/issues'>
-            <h6>ISSUES</h6>
-          </Link>
-
-          <span>{currentUser? currentUser.username : <p>John</p>}</span>
+          {currentUser && 
+            <Link className='link' to='/cheques'>
+              <h6>CHEQUES</h6>
+            </Link>     
+          }
+          {currentUser && 
+            <Link className='link' to='/issues'>
+              <h6>ISSUES</h6>
+            </Link>    
+          }
+          {currentUser && <span>{currentUser.username}</span>}
           {currentUser? <span onClick={handleSubmit}>Logout</span> : <Link to="/login" className='link'>Login</Link>}
-          <span className='write'>
-            <Link className='link' to='/write'>Write</Link>
-          </span>
         </div>
       </div>
     </div>
