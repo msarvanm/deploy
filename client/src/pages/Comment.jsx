@@ -6,7 +6,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import {AiFillDownCircle} from "react-icons/ai"
 
-const Comment = ({pur_issue_id, issue_description}) => {
+const Comment = ({pur_issue_id}) => {
 
 const { currentUser } = useContext(AuthContext);
 console.log("current user is ", currentUser)
@@ -41,6 +41,7 @@ const handleSubmit = (e)=>{
 }
 
 const loadData = async () => {
+    console.log(pur_issue_id)
     const response = await axios.get(`https://deployserver-production-e464.up.railway.app/getcomments/${pur_issue_id}`);
     setData(response.data);
     
@@ -48,16 +49,11 @@ const loadData = async () => {
 
   return (
         <div className='comments'>
-                 <div className='desc'>
-                    <h4>Description</h4>
-                    <p>{issue_description}</p>
-                </div>
                 <div className="comment">
                     <div className="heading">
                      <h4>Follow ups</h4>
                      <button onClick={loadData}><AiFillDownCircle/></button> 
                     </div>
-                    
                     {data && <div className='comment-section'>
                         {data.map((comment)=>{
                         return (
@@ -69,7 +65,6 @@ const loadData = async () => {
                                 <p>{comment.recorded_by}</p>
                                 <p>{moment(comment.recorded_date).format('D MMMM YYYY, dddd')}</p>
                             </div>
-                            
                         </div>
                         )
                         })}
@@ -83,7 +78,7 @@ const loadData = async () => {
                     placeholder="Comment"
                     onChange={(e)=>{setComment(e.target.value)}} 
                      />
-                    <button onClick={handleSubmit}>Submit</button>
+                    <button onClick={handleSubmit}>Submit</button>                 
                  </form>
                  </div>            
         </div>

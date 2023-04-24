@@ -1,19 +1,27 @@
 import React, { useContext } from 'react'
 import { useState } from 'react'
-import {AiOutlineMinus, AiOutlinePlus} from "react-icons/ai"
+import {AiOutlineMinus, AiOutlinePlus, AiTwotoneDelete} from "react-icons/ai"
 import moment from 'moment';
 import { AuthContext } from '../context/authContext';
 import Comment from './Comment';
+import axios from 'axios';
 
-const SinglePurchaseIssue = ({issue}) => {
+const SinglePurchaseIssue = ({issue, loadData}) => {
 
 const { currentUser } = useContext(AuthContext);
 console.log("current user is ", currentUser)
 
 const [showInfo, setShowInfo] = useState(false);
 
-const handleClick = (id) => {
+const handleClick = () => {
     setShowInfo(!showInfo);
+};
+
+const handleDelete = (id) =>{
+    if(window.confirm('Confirm Delete', id)) {
+        axios.get(`http://localhost:9000/deleteissue/${id}`);
+        setTimeout(()=>loadData(),500);
+    }
 }
 
   return (
@@ -33,9 +41,18 @@ const handleClick = (id) => {
                             <h6>{issue.issue}</h6>
                         </div>
                     </div>
+                    <div className="description-issue">
+                                    <h4>Description</h4>
+                                    <div className="product-issue">
+                                        <h6>{issue.description}</h6>
+                                    </div>
+                                </div>
                     <h3>{issue.status}</h3>  
                 </div>
-                <button className='btn' onClick={handleClick} >
+                <button className='btn btn-delete' onClick={()=>handleDelete(issue.pur_issue_id)} >
+                                <AiTwotoneDelete/>
+                            </button>
+                <button className='btn btn-open' onClick={handleClick} >
                     
                     {showInfo ? <AiOutlineMinus/> : <AiOutlinePlus/> }
                 </button>

@@ -256,6 +256,7 @@ $lightGreen : #b9e7e7;
         .questions {
             display: flex;
             flex-direction: column;
+            width: 1100px;
             gap: 2px;
             .answers{
                 background-color: #f2f5f5;
@@ -264,7 +265,7 @@ $lightGreen : #b9e7e7;
                
                 display: flex;
                 flex-direction: row;
-                width: 800px;
+                
                 justify-content: space-between;
                 background: #f2f5f5;
                 // border: 1px solid teal;
@@ -300,14 +301,11 @@ $lightGreen : #b9e7e7;
                         }
                     }
                     .product{
-                        width: 350px;
+                        width: 150px;
                         padding: 0;
                         h6 {
                             margin: 0;
                         }
-                    }
-
-                    .product {
                         h4 {
                             color: rgb(181, 52, 112);
                             margin-bottom: 5px;
@@ -315,10 +313,38 @@ $lightGreen : #b9e7e7;
                             padding: 0;
                         }
                     }
+                    .description-issue{
+                        width: 270px;
+                        height: 56px;
+                        padding: 0;
+                        h6 {
+                            margin: 0;
+                        }
+                        h4 {
+                            color: rgb(181, 52, 112);
+                            margin-bottom: 5px;
+                            margin-top: 0;
+                            padding: 0;
+                        }
+                    }
+
                 }
 
-                .btn {
+                .btn-open {
                     background-color: transparent;
+                    svg {
+                        width: 60px;
+                        height: 30px;
+                        color: rgb(71, 52, 181);
+                    }
+                }
+                .btn-delete {
+                    background-color: transparent;
+                    svg {
+                        width: 30px;
+                        height: 40px;
+                        color: rgb(145, 35, 35);
+                    }
                 }
                 
             }
