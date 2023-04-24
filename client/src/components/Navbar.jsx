@@ -33,7 +33,7 @@ const Navbar = () => {
           }
           {currentUser && 
             <Link className='link' to='/issues'>
-              <h6>ISSUES</h6>
+              <h6>PURCHASE ISSUES</h6>
             </Link>    
           }
           {currentUser && <span>{currentUser.username}</span>}
