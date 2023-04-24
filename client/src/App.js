@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider, Outlet} from "react-router-dom"
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import AddEditCheque from "./pages/AddEditCheque";
+import AddPurchaseIssue from "./pages/AddPurchaseIssue";
 import Cheques from "./pages/Cheques";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/issues",
         element: <PurchaseIssues/>,
+      },
+      {
+        path: "/addpurchaseissue",
+        element: <AddPurchaseIssue/>,
       },
     ]
   },

@@ -1,31 +1,13 @@
 import { useState, useContext } from "react";
 import axios from 'axios';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
 
-const MODAL_STYLES ={
-  position: 'fixed',
-  top: '20%',
-  left: '50%',
-  transform: 'translate(-50%)',
-  backgroundColor: '#FFF',
-  padding: '50px',
-  zIndex: 1000
-
-}
-const OVERLAY_STYLES = {
-  position: 'fixed',
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  backgroundColor: 'rgba(0, 0, 0, 0.7)',
-  zIndex: 1000
-}
-
-export default function Modal({isOpen, children, loadData, onClose, pur_issue_id}) {
+const AddPurchaseIssue = () => {
 
 const navigate = useNavigate();
+const {pur_issue_id} = useParams() || '';
+console.log("params", pur_issue_id)
 
 const initialState = {
     recorded_by: "",
@@ -37,7 +19,6 @@ const initialState = {
     status: "",
     description: "",
     assigned_to:""
-
 }
 
 const [state, setState] = useState(initialState);
@@ -71,16 +52,15 @@ const handleSubmit = (e)=>{
           }).then(()=>{
               setState({recorded_by: '', date_recorded: '', supplier_name: '', product_name: '', qty:'',issue: '', status: '', description: '', assigned_to: ''  })
               setTimeout(() => {
-                loadData();
+                navigate('/issues');
               }, 500);
           }).catch((err)=>{
               console.log(err.message);
           })
           
       } else {
-          console.log('put');
           console.log(state)
-          axios.put (`https://deployserver-production-e464.up.railway.app/editcheque/${pur_issue_id}`, {
+          axios.put (`http://localhost:9000/editpurchaseissue/${pur_issue_id}`, {
             recorded_by,
             date_recorded,
             supplier_name,
@@ -95,21 +75,13 @@ const handleSubmit = (e)=>{
               navigate('/issues')
           }).catch((err)=>{
               console.log(err.message);
-          })
-          
+          })  
       }}
-  
 }
-
-  if(!isOpen) return null
   return (
-    <>
-    <div style={OVERLAY_STYLES} ></div>
-    <div  style={MODAL_STYLES}>
-      <button onClick={onClose}>Close</button>
+    <div className="addpurchaseissue" >
       <h3>Add Purchase Issue</h3>
       <div className="purchase-issue-form">
-        {children}
         <form action="">
           <input 
           type="Date" 
@@ -153,7 +125,7 @@ const handleSubmit = (e)=>{
             <option value="Courier Sent">Courier Sent</option>
             <option value="Waiting for Stock">Waiting for Stock</option>
           </select>
-          <textarea name="description" id="description" cols="30" rows="10" placeholder="Description" value={description || "" } onChange={handleInputChange} ></textarea>
+          <textarea name="description" id="description" cols="30" rows="6" placeholder="Description" value={description || "" } onChange={handleInputChange} ></textarea>
           <input 
             type="text" 
             id="recorded_by"
@@ -175,6 +147,6 @@ const handleSubmit = (e)=>{
         </form>
       </div>
     </div>
-    </>
   )
 }
+export default AddPurchaseIssue;
