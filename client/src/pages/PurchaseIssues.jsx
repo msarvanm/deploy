@@ -14,13 +14,12 @@ const PurchaseIssues = () => {
     const loadData = async () => {
         const response = await axios.get('https://deployserver-production-e464.up.railway.app/getpurchaseissues');
         setData(response.data);
-        console.log(response.data)
+        console.log("purchase issue is ", response.data)
     }
 
     useEffect (()=>{
         loadData();
     },[])
-
 
     const[isOpen, setIsOpen] = useState(false);
 
@@ -34,9 +33,11 @@ const PurchaseIssues = () => {
             <section>
                 {data.map((issue)=>{
                  return (
-                    <SinglePurchaseIssue key={issue.pur_issue_id} issue={issue} />
-                 )
-                })}
+                    <SinglePurchaseIssue issue={issue} loadData={loadData} />
+
+                 )})
+                    
+                }
             </section>
         </div>
       </main>
