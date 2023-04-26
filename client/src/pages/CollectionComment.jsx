@@ -6,11 +6,12 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import {AiFillDownCircle} from "react-icons/ai"
 
-const Comment = ({pur_issue_id}) => {
+const CollectionComment = ({col_id}) => {
+
+console.log("col_id", col_id)
 
 const { currentUser } = useContext(AuthContext);
 console.log("current user is ", currentUser)
-console.log("pur_issue_id", pur_issue_id)
 
 const navigate = useNavigate();
 
@@ -22,15 +23,15 @@ const handleSubmit = (e)=>{
     if(!comment ) {
         console.log("Enter values");
     } else {
-            console.log(comment, currentUser.username)
-            axios.post ('https://deployserver-production-e464.up.railway.app/addcomment', {
+            console.log(comment, col_id, currentUser.username)
+            axios.post ('https://deployserver-production-e464.up.railway.app/addcollectioncomment', {
                 comment,
                 recorded_date : moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
                 recorded_by: currentUser.username,
-                issue_id: pur_issue_id
+                col_id: col_id
             }).then(()=>{
                 setComment('')
-                navigate('/issues')
+                navigate('/collection')
                 setTimeout(() => {
                     loadData();
                 }, 500);
@@ -41,8 +42,8 @@ const handleSubmit = (e)=>{
 }
 
 const loadData = async () => {
-    console.log(pur_issue_id)
-    const response = await axios.get(`https://deployserver-production-e464.up.railway.app/getcomments/${pur_issue_id}`);
+    console.log(col_id)
+    const response = await axios.get(`https://deployserver-production-e464.up.railway.app/getcollectioncomments/${col_id}`);
     setData(response.data);
     
 }
@@ -78,10 +79,10 @@ const loadData = async () => {
                     placeholder="Comment"
                     onChange={(e)=>{setComment(e.target.value)}} 
                      />
-                    <button onClick={handleSubmit}>Submit</button>                 
+                    <button onClick={handleSubmit}>Submit</button>         
                  </form>
                  </div>            
         </div>
   )
 }
-export default Comment;
+export default CollectionComment;

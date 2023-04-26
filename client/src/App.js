@@ -1,9 +1,11 @@
 import { createBrowserRouter, RouterProvider, Outlet} from "react-router-dom"
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import AddCollection from "./pages/AddCollection";
 import AddEditCheque from "./pages/AddEditCheque";
 import AddPurchaseIssue from "./pages/AddPurchaseIssue";
 import Cheques from "./pages/Cheques";
+import Collection from "./pages/Collection";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import PurchaseIssues from "./pages/PurchaseIssues";
@@ -47,6 +49,22 @@ const router = createBrowserRouter([
       {
         path: "/addpurchaseissue",
         element: <AddPurchaseIssue/>,
+      },
+      {
+        path: "/addpurchaseissue/:id",
+        element: <AddPurchaseIssue/>,
+      },
+      {
+        path: "/collection",
+        element: <Collection/>,
+      },
+      {
+        path: "/addcollection",
+        element: <AddCollection/>,
+      },
+      {
+        path: "/editcollection/:id",
+        element: <AddCollection/>,
       },
     ]
   },

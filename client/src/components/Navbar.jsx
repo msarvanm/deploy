@@ -36,6 +36,12 @@ const Navbar = () => {
               <h6>PURCHASE ISSUES</h6>
             </Link>    
           }
+          {currentUser && 
+            <Link className='link' to='/collection'>
+              <h6>COLLECTIONS</h6>
+            </Link>    
+          }
+
           {currentUser && <span>{currentUser.username}</span>}
           {currentUser? <span onClick={handleSubmit}>Logout</span> : <Link to="/login" className='link'>Login</Link>}
         </div>
