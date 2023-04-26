@@ -69,7 +69,7 @@ const handleSubmit = (e)=>{
           
       } else {
           console.log(state)
-          axios.put (`http://localhost:9000/editpurchaseissue/${id}`, {
+          axios.put (`https://deployserver-production-e464.up.railway.app/editpurchaseissue/${id}`, {
             recorded_by,
             date_recorded,
             supplier_name,
