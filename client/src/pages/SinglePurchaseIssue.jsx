@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { useState } from 'react'
-import {AiOutlineMinus, AiOutlinePlus, AiTwotoneDelete, AiTwotoneEdit} from "react-icons/ai"
+import {AiOutlineMinus, AiOutlinePlus, AiTwotoneDelete} from "react-icons/ai"
 import moment from 'moment';
 import { AuthContext } from '../context/authContext';
 import Comment from './Comment';
