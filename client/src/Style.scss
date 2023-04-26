@@ -218,7 +218,7 @@ $lightGreen : #b9e7e7;
                 gap: 10px;
                 align-items: center;
                 justify-content: center;
-                
+
                 input {
                     width: 300px;
                 }
@@ -282,7 +282,7 @@ $lightGreen : #b9e7e7;
 
                     h3 {
                         width: 100px;
-                        color: rgb(71, 52, 181);
+                        color: rgb(181, 52, 112);
                     }
 
                     .supplier{
@@ -343,6 +343,21 @@ $lightGreen : #b9e7e7;
                         color: rgb(145, 35, 35);
                     }
                 }
+
+                .edit {
+                    align-items: center;
+                    justify-content: center;
+                    margin-top: 10px;
+                    color: rgb(71, 52, 181);
+                    h3 {
+                        background-color: aqua;
+                        padding: 5px;
+                        border-radius: 4px;
+                        width: 50px;
+                        text-align: center;
+                        cursor: pointer;
+                    }
+                }
                 
             }
             .answers {
@@ -399,11 +414,15 @@ $lightGreen : #b9e7e7;
                         border: none;
                         align-items: center;
                         justify-content: center;
-                        margin-top: 7px;
+                        margin-top: 10px;
                         padding: 0;
                         cursor: pointer;
+                        svg {
+                            width: 30px;
+                            height: 30px;
+                        }
                     }
-                    h4 {
+                    h3 {
                         color: rgb(71, 52, 181);
                         margin: 0;
                     }
@@ -460,8 +479,130 @@ $lightGreen : #b9e7e7;
                     margin: 0;
                     padding: 5px;
                 }
+                p {
+                    margin: 0;
+                }
                 
             }
+
+        }
+
+        .container-collection {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            section {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        .collection {
+            display: flex;
+            flex-direction: column;
+            width: 900px;
+            gap: 2px;
+            .answers{
+                background-color: #f2f5f5;
+            }
+            header {
+               
+                display: flex;
+                flex-direction: row;
+                
+                justify-content: space-between;
+                background: #f2f5f5;
+                // border: 1px solid teal;
+                padding: 0, 20px;
+                
+                .border{
+                    background-color: rgb(149, 171, 171);
+                    width: 5px;
+                }
+                .summary {
+                    padding: 3px;
+                    display: flex;
+                    flex-direction: row;
+                    gap: 40px;
+                    align-items: center;
+                    justify-content: center;
+
+                    h3 {
+                        width: 100px;
+                        color: rgb(181, 52, 112);
+                    }
+
+                    .supplier{
+                        width: 150px;
+                        h6 {
+                            margin: 0;
+                        }
+                        h4 {
+                            color: rgb(181, 52, 112);
+                            margin-bottom: 5px;
+                            margin-top: 0;
+                            padding: 0;
+                        }
+                    }
+
+                    .description-issue{
+                        width: 150px;
+                        height: 46px;
+                        padding: 0;
+                        h6 {
+                            margin: 0;
+                        }
+                        h4 {
+                            color: rgb(181, 52, 112);
+                            margin-bottom: 5px;
+                            margin-top: 0;
+                            padding: 0;
+                        }
+                    }
+
+                }
+
+                .btn-open {
+                    background-color: transparent;
+                    svg {
+                        width: 60px;
+                        height: 30px;
+                        color: rgb(71, 52, 181);
+                    }
+                }
+                .btn-delete {
+                    background-color: transparent;
+                    svg {
+                        width: 30px;
+                        height: 40px;
+                        color: rgb(145, 35, 35);
+                    }
+                }
+
+                .edit {
+                    align-items: center;
+                    justify-content: center;
+                    margin-top: 10px;
+                    color: rgb(71, 52, 181);
+                    h3 {
+                        background-color: aqua;
+                        padding: 5px;
+                        border-radius: 4px;
+                        width: 50px;
+                        text-align: center;
+                        cursor: pointer;
+                    }
+                }
+                
+            }
+            .answers {
+                padding: 10px;
+            }
+
 
         }
 

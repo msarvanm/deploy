@@ -21,6 +21,7 @@ const AddEditCheque = () => {
     useEffect(()=>{
         axios.get(`https://deployserver-production-e464.up.railway.app/getcheque/${id}`).then((resp)=>setState({...resp.data}));
     },[id]);
+    console.log(state)
 
     const handleSubmit = (e)=>{
         e.preventDefault();

@@ -1,13 +1,12 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import axios from 'axios';
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
+import moment from "moment";
 
 const AddPurchaseIssue = () => {
 
 const navigate = useNavigate();
-const {pur_issue_id} = useParams() || '';
-console.log("params", pur_issue_id)
 
 const initialState = {
     recorded_by: "",
@@ -32,12 +31,22 @@ const handleInputChange = (e)=>{
   setState({...state, [name]:value});
 }
 
+const {id} = useParams();
+console.log("id for purchase issue edit", id)
+
+
+useEffect(()=>{
+  axios.get(`https://deployserver-production-e464.up.railway.app/getpurchaseissues/${id}`).then((resp)=>setState({...resp.data}));
+},[id]);
+
+console.log(state)
+
 const handleSubmit = (e)=>{
   e.preventDefault();
   if(!date_recorded || !supplier_name || !product_name || !qty ) {
       console.log("Enter values");
   } else {
-      if(!pur_issue_id){
+      if(!id){
           console.log("state is ", state)
           axios.post ('https://deployserver-production-e464.up.railway.app/addpurchaseissue', {
             recorded_by,
@@ -60,7 +69,7 @@ const handleSubmit = (e)=>{
           
       } else {
           console.log(state)
-          axios.put (`http://localhost:9000/editpurchaseissue/${pur_issue_id}`, {
+          axios.put (`http://localhost:9000/editpurchaseissue/${id}`, {
             recorded_by,
             date_recorded,
             supplier_name,
@@ -80,15 +89,20 @@ const handleSubmit = (e)=>{
 }
   return (
     <div className="addpurchaseissue" >
-      <h3>Add Purchase Issue</h3>
+    <h2>{id ? "Edit Purchase Issue" : "Add Purchase Issue"}</h2>
+       
       <div className="purchase-issue-form">
-        <form action="">
+        <form >
+          {id && <p > Date Recorded : {moment(date_recorded).format('D MMMM YYYY, dddd')}</p>}
           <input 
           type="Date" 
           id="date_recordede"
           name="date_recorded"
+          required
           onChange={handleInputChange}
+          
           />
+          
           <input 
           type="text" 
           placeholder="Supplier Name" 
@@ -113,17 +127,19 @@ const handleSubmit = (e)=>{
           value={qty || ''}
           onChange={handleInputChange} 
           />
-          <select name="issue" id="issue" value={issue || "Excess" } onChange={handleInputChange} >
+          <select name="issue" id="issue" value={issue || "" } onChange={handleInputChange} >
+           <option value="Select Issue">Select Issue</option>
             <option value="Excess">Excess</option>
             <option value="Shortage">Shortage</option>
             <option value="MRP Change">MRP Change</option>
             <option value="Damaged">Damaged</option>
           </select>
-          <select name="status" id="status" value={status || "In Progress" } onChange={handleInputChange} >
-            <option value="Progress">In Progress</option>
+          <select name="status" id="status" value={status || "" } onChange={handleInputChange} >
+          <option value="Select Status">Select Status</option>
             <option value="Informed Supplier">Informed Supplier</option>
-            <option value="Courier Sent">Courier Sent</option>
+            <option value="Courier Sent">Stock Sent to Supplier</option>
             <option value="Waiting for Stock">Waiting for Stock</option>
+            <option value="Waiting for Stock">Completed</option>
           </select>
           <textarea name="description" id="description" cols="30" rows="6" placeholder="Description" value={description || "" } onChange={handleInputChange} ></textarea>
           <input 
@@ -139,14 +155,13 @@ const handleSubmit = (e)=>{
             id="assigned_to"
             name="assigned_to"
             placeholder="Assigned to"
-            value={assigned_to || ''}
+            value={state.issue || ''}
             onChange={handleInputChange}
            />
           <button onClick={handleSubmit}>Submit</button>
-          {recorded_by}
         </form>
       </div>
     </div>
-  )
+  );
 }
 export default AddPurchaseIssue;
