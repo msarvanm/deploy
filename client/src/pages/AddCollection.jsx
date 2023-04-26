@@ -33,7 +33,7 @@ console.log("id for purchase issue edit", id)
 
 
 useEffect(()=>{
-  axios.get(`http://localhost:9000/getcollection/${id}`).then((resp)=>setState({...resp.data}));
+  axios.get(`https://deployserver-production-e464.up.railway.app/getcollection/${id}`).then((resp)=>setState({...resp.data}));
 },[id]);
 
 console.log(state)
@@ -45,7 +45,7 @@ const handleSubmit = (e)=>{
   } else {
       if(!id){
           console.log("state is ", state)
-          axios.post ('http://localhost:9000/addcollection', {
+          axios.post ('https://deployserver-production-e464.up.railway.app/addcollection', {
             recorded_by,
             date_recorded,
             customer_name,
@@ -62,7 +62,7 @@ const handleSubmit = (e)=>{
           
       } else {
           console.log(state)
-          axios.put (`http://localhost:9000/editcollection/${id}`, {
+          axios.put (`https://deployserver-production-e464.up.railway.app/editcollection/${id}`, {
             recorded_by,
             date_recorded,
             customer_name,
