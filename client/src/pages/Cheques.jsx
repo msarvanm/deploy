@@ -26,6 +26,20 @@ const Cheques = () => {
         loadData();
     },[])
 
+    const byDate =(a, b) =>{
+        let d1 = new Date (a.chq_date);
+        let d2 = new Date (b.chq_date);
+        if (d1.getUTCMonth() > d2.getUTCMonth()) {
+            return 1;
+        } else if (d1.getUTCMonth() < d2.getUTCMonth()) {
+            return 0;
+        } else {
+           return d1.getUTCDate() - d2.getUTCDate();
+        }
+
+
+    }
+
     return ( 
         <div>
             <div className="add-staff">
@@ -46,7 +60,7 @@ const Cheques = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map((item, index)=>{
+                    {data.sort(byDate).map((item, index)=>{
                         return (
                             <tr key={item.id}>
                                 <th scope="row">{index+1}</th>
