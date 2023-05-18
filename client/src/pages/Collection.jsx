@@ -9,8 +9,6 @@ import SingleCollection from './SingleCollection';
 const Collection = () => {
     const { currentUser } = useContext(AuthContext);
     console.log("current user is ", currentUser)
-    const [data, setData] = useState([]);
-    const[dataToday, setDataToday] = ([]);
 
     const loadData = async () => {
         const response = await axios.get('https://deployserver-production-e464.up.railway.app/getcollections');
