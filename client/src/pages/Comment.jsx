@@ -73,6 +73,7 @@ const loadData = async () => {
                     <textarea 
                     name="comment" 
                     id="comment" 
+                    value={comment}
                     cols="67" 
                     rows="1"
                     placeholder="Comment"

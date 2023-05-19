@@ -73,6 +73,7 @@ const loadData = async () => {
                  <form action="">
                     <textarea 
                     name="comment" 
+                    value={comment}
                     id="comment" 
                     cols="67" 
                     rows="1"
