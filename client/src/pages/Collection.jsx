@@ -21,6 +21,18 @@ const Collection = () => {
         loadData();
     },[])
 
+    const byDate =(a, b) =>{
+      let d1 = new Date (a.followup_date);
+      let d2 = new Date (b.followup_date);
+      if (d1.getUTCMonth() > d2.getUTCMonth()) {
+          return 1;
+      } else if (d1.getUTCMonth() < d2.getUTCMonth()) {
+          return 0;
+      } else {
+         return d1.getUTCDate() - d2.getUTCDate();
+      }
+  }
+
   return (
     <div>
       <main>
@@ -29,7 +41,7 @@ const Collection = () => {
                     <button className="btn">Add Collection Followup</button>
                 </Link>
             <section>
-                {data.map((issue)=>{
+                {data.sort(byDate).map((issue)=>{
                  return (
                     <SingleCollection issue={issue} loadData={loadData} />
                  )})

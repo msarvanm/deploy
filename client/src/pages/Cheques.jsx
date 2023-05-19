@@ -36,8 +36,6 @@ const Cheques = () => {
         } else {
            return d1.getUTCDate() - d2.getUTCDate();
         }
-
-
     }
 
     return ( 

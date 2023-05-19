@@ -21,6 +21,18 @@ const PurchaseIssues = () => {
         loadData();
     },[])
 
+    const byDate =(a, b) =>{
+      let d1 = new Date (a.date_recorded);
+      let d2 = new Date (b.date_recorded);
+      if (d1.getUTCMonth() > d2.getUTCMonth()) {
+          return 1;
+      } else if (d1.getUTCMonth() < d2.getUTCMonth()) {
+          return 0;
+      } else {
+         return d1.getUTCDate() - d2.getUTCDate();
+      }
+  }
+
   return (
     <div>
       <main>
@@ -29,7 +41,7 @@ const PurchaseIssues = () => {
                     <button className="btn">Add Purchase Issue</button>
                 </Link>
             <section>
-                {data.map((issue)=>{
+                {data.sort(byDate).map((issue)=>{
                  return (
                     <SinglePurchaseIssue issue={issue} loadData={loadData} />
                  )})
