@@ -41,6 +41,12 @@ useEffect(()=>{
 
 console.log(state)
 
+const formatDateForInput = (date) => {
+  const adjustedDate = new Date(date);
+  adjustedDate.setDate(adjustedDate.getDate() + 1); // Adjusting the date by adding 1 day
+  return adjustedDate.toISOString().substr(0, 10);
+};
+
 const handleSubmit = (e)=>{
   e.preventDefault();
   if(!date_recorded || !supplier_name || !product_name || !qty ) {
@@ -71,7 +77,7 @@ const handleSubmit = (e)=>{
           console.log(state)
           axios.put (`https://deployserver-production-e464.up.railway.app/editpurchaseissue/${id}`, {
             recorded_by,
-            date_recorded,
+            date_recorded : moment(date_recorded).format('YYYY-MM-D'),
             supplier_name,
             product_name,
             qty,
@@ -93,15 +99,21 @@ const handleSubmit = (e)=>{
        
       <div className="purchase-issue-form">
         <form >
-          {id && <p > Date Recorded : {moment(date_recorded).format('D MMMM YYYY, dddd')}</p>}
-          <input 
+          { date_recorded && <input 
+          type="Date" 
+          id="date_recordede"
+          name="date_recorded"
+          defaultValue={formatDateForInput(date_recorded)}
+          required
+          onChange={handleInputChange}
+          />}
+          { !date_recorded && <input 
           type="Date" 
           id="date_recordede"
           name="date_recorded"
           required
           onChange={handleInputChange}
-          
-          />
+          />}
           
           <input 
           type="text" 

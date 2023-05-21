@@ -66,6 +66,12 @@ const AddEditCheque = () => {
         setState({...state, [name]:value});
     }
 
+    const formatDateForInput = (date) => {
+        const adjustedDate = new Date(date);
+        adjustedDate.setDate(adjustedDate.getDate() + 1); // Adjusting the date by adding 1 day
+        return adjustedDate.toISOString().substr(0, 10);
+      };
+
     return ( 
         <div className="addedit">
             <h2>{id ? "Edit Cheque" : "Add Cheque"}</h2>
@@ -78,14 +84,24 @@ const AddEditCheque = () => {
                     value={chq_no || ''}
                     onChange={handleInputChange}
                  />
-                 
-                 <input 
+
+                 {!chq_date && <input 
                     type="date" 
                     id="chq_date"
                     name="chq_date"
                     placeholder="Date"
                     onChange={handleInputChange}
-                 />
+                 />}
+             
+                 {chq_date && <input 
+                    type="date" 
+                    id="chq_date"
+                    name="chq_date"
+                    defaultValue={formatDateForInput(chq_date)}
+                    placeholder="Date"
+                    onChange={handleInputChange}
+                 />}
+
                  <input 
                     type="text" 
                     id="supplier_name"
