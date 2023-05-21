@@ -38,6 +38,12 @@ useEffect(()=>{
 
 console.log(state)
 
+const formatDateForInput = (date) => {
+  const adjustedDate = new Date(date);
+  adjustedDate.setDate(adjustedDate.getDate() + 0); // Adjusting the date by adding 1 day
+  return adjustedDate.toISOString().substr(0, 10);
+};
+
 const handleSubmit = (e)=>{
   e.preventDefault();
   if(!date_recorded || !customer_name || !status ) {
@@ -64,15 +70,15 @@ const handleSubmit = (e)=>{
           console.log(state)
           axios.put (`https://deployserver-production-e464.up.railway.app/editcollection/${id}`, {
             recorded_by,
-            date_recorded,
+            date_recorded : moment(date_recorded).format('YYYY-MM-D'),
             customer_name,
-            followup_date,
+            followup_date : moment(followup_date).format('YYYY-MM-D'),
             status
           }).then(()=>{
               setState({recorded_by: '', date_recorded: '', customer_name: '', followup_date: '', status: ''})
               navigate('/collection')
           }).catch((err)=>{
-              console.log(err.message);
+              console.log(err);
           })  
       }}
 }
@@ -81,27 +87,42 @@ const handleSubmit = (e)=>{
     <h2>{id ? "Edit Collection" : "Add Collection"}</h2>
        
       <div className="purchase-issue-form">
-        <form >
+        <form onSubmit={handleSubmit}>
           <label htmlFor="">Date Recorded</label>
-          {id && <p >{moment(date_recorded).format('D MMMM YYYY, dddd')}</p>}
-          <input 
+          {!date_recorded && <input 
           type="Date" 
           id="date_recorded"
           name="date_recorded"
           required
           onChange={handleInputChange}
-          
-          />
+          />}
+          {date_recorded && <input 
+          type="Date" 
+          id="date_recorded"
+          name="date_recorded"
+          defaultValue={formatDateForInput(date_recorded)}
+          placeholder="Date"
+          onChange={handleInputChange}
+          />}
           <label htmlFor="">Follow up Date</label>
-          {id && <p>{moment(followup_date).format('D MMMM YYYY, dddd')}</p>}
-          <input 
+          {! followup_date && <input 
           type="Date" 
           id="followup_date"
           name="followup_date"
           required
           onChange={handleInputChange}
           
-          />
+          />}
+          { followup_date &&
+          <input 
+          type="Date" 
+          id="followup_date"
+          name="followup_date"
+          defaultValue={formatDateForInput(followup_date)}
+          placeholder="Date"
+          onChange={handleInputChange}
+          
+          />}
           
           <input 
           type="text" 
@@ -126,7 +147,7 @@ const handleSubmit = (e)=>{
             value={recorded_by || ''}
             onChange={handleInputChange}
            />
-          <button onClick={handleSubmit}>Submit</button>
+          <button type="submit" >Submit</button>
         </form>
       </div>
     </div>
