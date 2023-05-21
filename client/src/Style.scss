@@ -494,6 +494,9 @@ $lightGreen : #b9e7e7;
             align-items: center;
             justify-content: center;
             gap: 30px;
+            .search {
+                display: flex; flex-direction: row; gap: 10px;
+            }
             section {
                 display: flex;
                 flex-direction: column;
