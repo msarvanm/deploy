@@ -11,7 +11,6 @@ const Collection = () => {
     console.log("current user is ", currentUser)
     const [data, setData] = useState([]);
     const [filteredData, setFilteredData] = useState(data || []);
-    const [incharge, setIncharge] = useState([]);
 
     const loadData = async () => {
         const response = await axios.get('https://deployserver-production-e464.up.railway.app/getcollections');
@@ -23,7 +22,6 @@ const Collection = () => {
 
     useEffect (()=>{
         loadData();
-        console.log("Incharge is ", incharge)
     },[])
 
 
