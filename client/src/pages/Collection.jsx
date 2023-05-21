@@ -40,7 +40,7 @@ const Collection = () => {
   const handleInputChange = (e) =>{
    console.log(e.target.value)
   if (e.target.value) {
-   setFilteredData(data.filter((collection)=>collection.recorded_by==e.target.value))}
+   setFilteredData(data.filter((collection)=>collection.recorded_by===e.target.value))}
    else {
     setFilteredData(data)
    }
