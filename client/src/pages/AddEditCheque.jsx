@@ -68,7 +68,7 @@ const AddEditCheque = () => {
 
     const formatDateForInput = (date) => {
         const adjustedDate = new Date(date);
-        adjustedDate.setDate(adjustedDate.getDate() + 1); // Adjusting the date by adding 1 day
+        adjustedDate.setDate(adjustedDate.getDate() + 0); // Adjusting the date by adding 1 day
         return adjustedDate.toISOString().substr(0, 10);
       };
 
