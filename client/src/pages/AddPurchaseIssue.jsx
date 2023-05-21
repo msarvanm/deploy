@@ -171,6 +171,7 @@ const handleSubmit = (e)=>{
             onChange={handleInputChange}
            />
           <button onClick={handleSubmit}>Submit</button>
+          <button onClick={()=>navigate('/issues')} >Cancel</button>
         </form>
       </div>
     </div>

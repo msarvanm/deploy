@@ -120,7 +120,7 @@ const AddEditCheque = () => {
                  />
                  <div className="btn-area">
                     <input type="submit" value={id ? "Update" : "Save"} className="btn"/>
-                    <Link to="/">
+                    <Link to="/cheques">
                         <input type="button" value="Go Back" className="btn" />
                     </Link>
                  </div>
