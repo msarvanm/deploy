@@ -58,7 +58,7 @@ const handleDelete = (id) =>{
                 </button>
             </header>
             {showInfo && 
-                 <CollectionComment  col_id = {issue.col_id}/>
+                 <CollectionComment  col_id = {issue.col_id} loadCollection = {loadData}/>
             }
         </div>
   )
