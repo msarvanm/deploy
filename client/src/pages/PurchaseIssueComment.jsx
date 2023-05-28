@@ -6,7 +6,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import {AiFillDownCircle} from "react-icons/ai"
 
-const Comment = ({pur_issue_id}) => {
+const PurchaseIssueComment = ({pur_issue_id}) => {
 
 const { currentUser } = useContext(AuthContext);
 console.log("current user is ", currentUser)
@@ -50,6 +50,8 @@ const loadData = async () => {
   return (
         <div className='comments'>
                 <div className="comment">
+                
+
                     <div className="heading">
                      <h3>Follow ups</h3>
                      <button onClick={loadData}><AiFillDownCircle/></button> 
@@ -79,10 +81,10 @@ const loadData = async () => {
                     placeholder="Comment"
                     onChange={(e)=>{setComment(e.target.value)}} 
                      />
-                    <button onClick={handleSubmit}>Submit</button>                 
+                    <button onClick={handleSubmit} >Submit</button>                 
                  </form>
                  </div>            
         </div>
   )
 }
-export default Comment;
+export default PurchaseIssueComment;

@@ -5,6 +5,7 @@ import { AuthContext } from '../context/authContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import {AiFillDownCircle} from "react-icons/ai"
+import Popup from './PopUp';
 
 const CollectionComment = ({col_id}) => {
 
@@ -17,6 +18,8 @@ const navigate = useNavigate();
 
 const [comment, setComment] = useState('');
 const [data, setData] = useState([]);
+const [popUp, setPopUp] = useState(false);
+
 
 const handleSubmit = (e)=>{
     e.preventDefault();
@@ -35,6 +38,7 @@ const handleSubmit = (e)=>{
                 setTimeout(() => {
                     loadData();
                 }, 500);
+                setPopUp(true)
             }).catch((err)=>{
                 console.log(err);
             })
@@ -53,6 +57,7 @@ const loadData = async () => {
                 <div className="comment">
                     <div className="heading">
                      <h3>Follow ups</h3>
+                     <Popup trigger={popUp} setTrigger={setPopUp} id={col_id}/>
                      <button onClick={loadData}><AiFillDownCircle/></button> 
                     </div>
                     {data && <div className='comment-section'>

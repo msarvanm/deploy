@@ -3,7 +3,7 @@ import { useState } from 'react'
 import {AiOutlineMinus, AiOutlinePlus, AiTwotoneDelete} from "react-icons/ai"
 import moment from 'moment';
 import { AuthContext } from '../context/authContext';
-import Comment from './Comment';
+import PurchaseIssueComment from './PurchaseIssueComment';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
@@ -65,7 +65,7 @@ const handleDelete = (id) =>{
                 </button>
             </header>
             {showInfo && 
-                 <Comment  pur_issue_id = {issue.pur_issue_id} issue_description={issue.description}/>
+                 <PurchaseIssueComment  pur_issue_id = {issue.pur_issue_id} issue_description={issue.description}/>
             }
         </div>
   )

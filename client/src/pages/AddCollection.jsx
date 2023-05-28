@@ -137,7 +137,7 @@ const handleSubmit = (e)=>{
            <option value="Select">Select a Status</option>
             <option value="No Response">No Response</option>
             <option value="Follow Up">Follow Up</option>
-            <option value="Already Paid">Already Paid</option>
+            <option value="Already Paid">Payment Received</option>
           </select>
           <input 
             type="text" 
