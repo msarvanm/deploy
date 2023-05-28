@@ -44,7 +44,7 @@ const Popup = (props) => {
 
     const handleSubmitFollowUp = (e)=>{
         e.preventDefault();
-                  axios.put (`http://localhost:9000/editcollectionFollowUp/${props.id}`, {
+                  axios.put (`https://deployserver-production-e464.up.railway.app/editcollectionFollowUp/${props.id}`, {
                   followup_date 
                 }).then(()=>{
                     handleClose()
@@ -55,7 +55,7 @@ const Popup = (props) => {
       }
     const handleSubmitStatus = (e)=>{
                  e.preventDefault();
-                  axios.put (`http://localhost:9000/editcollectionStatus/${props.id}`, {
+                  axios.put (`https://deployserver-production-e464.up.railway.app/editcollectionStatus/${props.id}`, {
                   status : "Payment Received"
                 }).then(()=>{
                     handleClose()
