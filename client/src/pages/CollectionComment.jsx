@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import {AiFillDownCircle} from "react-icons/ai"
 import Popup from './PopUp';
 
-const CollectionComment = ({col_id}) => {
+const CollectionComment = ({col_id, loadCollection}) => {
 
 console.log("col_id", col_id)
 
@@ -57,7 +57,7 @@ const loadData = async () => {
                 <div className="comment">
                     <div className="heading">
                      <h3>Follow ups</h3>
-                     <Popup trigger={popUp} setTrigger={setPopUp} id={col_id}/>
+                     <Popup trigger={popUp} setTrigger={setPopUp} id={col_id} loadCollection={loadCollection}/>
                      <button onClick={loadData}><AiFillDownCircle/></button> 
                     </div>
                     {data && <div className='comment-section'>

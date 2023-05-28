@@ -48,6 +48,7 @@ const Popup = (props) => {
                   followup_date 
                 }).then(()=>{
                     handleClose()
+                    props.loadCollection();
                     Navigate('/collection')
                 }).catch((err)=>{
                     console.log(err);
@@ -59,6 +60,7 @@ const Popup = (props) => {
                   status : "Payment Received"
                 }).then(()=>{
                     handleClose()
+                    props.loadCollection();
                     Navigate('/collection')
                 }).catch((err)=>{
                     console.log(err);
