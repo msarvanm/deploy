@@ -495,7 +495,9 @@ $lightGreen : #b9e7e7;
             justify-content: center;
             gap: 30px;
             .search {
-                display: flex; flex-direction: row; gap: 10px;
+                display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: center;
+                label{font-size: large;}
+                input{width: 300px; height: 35px; border-radius: 10px; border: 1px solid grey ;}
             }
             section {
                 display: flex;
