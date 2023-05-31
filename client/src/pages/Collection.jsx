@@ -24,7 +24,6 @@ const Collection = () => {
         loadData();
     },[])
 
-
     const byDate =(a, b) =>{
       let d1 = new Date (a.followup_date);
       let d2 = new Date (b.followup_date);
@@ -41,7 +40,7 @@ const Collection = () => {
    console.log(e.target.value)
   if (e.target.value) {
   //  setFilteredData(data.filter((collection)=>collection.recorded_by.toLowerCase()===e.target.value.toLowerCase()))}
-   setFilteredData(data.filter((collection)=>collection.recorded_by.toLowerCase().includes(e.target.value.toLowerCase())|| collection.customer_name.toLowerCase().includes(e.target.value.toLowerCase())))}
+   setFilteredData(data.filter((collection)=>collection.recorded_by.toLowerCase().includes(e.target.value.toLowerCase())|| collection.customer_name.toLowerCase().includes(e.target.value.toLowerCase())|| collection.status.toLowerCase().includes(e.target.value.toLowerCase())))}
    else {
     setFilteredData(data)
    }
@@ -57,7 +56,7 @@ const Collection = () => {
             </Link>
             <div className="search">
               <label htmlFor="">Search by</label>
-              <input type="text" placeholder='Incharge / Medical Name' onChange={handleInputChange}/>
+              <input type="text" placeholder='Incharge / Medical Name / Status' onChange={handleInputChange}/>
             </div>
             <section>
                 {filteredData.sort(byDate).map((issue)=>{
