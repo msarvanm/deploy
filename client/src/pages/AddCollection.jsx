@@ -136,9 +136,9 @@ const handleSubmit = (e)=>{
           <select name="status" id="status" value={status || "" } onChange={handleInputChange} >
            <option value="Select">Select a Status</option>
             <option value="No Response">No Response</option>
-            <option value="No Response">Need Direct Visit</option>
+            <option value="Need Direct Visit">Need Direct Visit</option>
             <option value="Follow Up">Follow Up</option>
-            <option value="Already Paid">Payment Received</option>
+            <option value="Payment Received">Payment Received</option>
             <option value="Payment Not Tally">Payment Not Tally</option>
             <option value="Cheque Bounced">Cheque Bounced</option>
           </select>
