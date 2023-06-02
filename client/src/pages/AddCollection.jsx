@@ -139,8 +139,8 @@ const handleSubmit = (e)=>{
             <option value="No Response">Need Direct Visit</option>
             <option value="Follow Up">Follow Up</option>
             <option value="Already Paid">Payment Received</option>
-            <option value="Already Paid">Payment Not Tally</option>
-            <option value="Already Paid">Cheque Bounced</option>
+            <option value="Payment Not Tally">Payment Not Tally</option>
+            <option value="Cheque Bounced">Cheque Bounced</option>
           </select>
           <input 
             type="text" 
